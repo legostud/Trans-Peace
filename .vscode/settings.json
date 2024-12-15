@@ -1,0 +1,34 @@
+// .vscode/settings.json file
+{
+    "cssvar.files": [
+      // "node_modules/open-props/open-props.min.css",
+      //"frontend/scss/generated/_variables.css"
+    ],
+    // Do not ignore node_modules css files, which is ignored by default
+    "cssvar.ignore": [],
+    // add support for autocomplete in JS or JS like files
+    "cssvar.extensions": [
+      "css",
+      "scss",
+      "postcss",
+      "sugarss",
+      "jsx",
+      "tsx",
+      "js"
+    ],
+    "files.associations": {
+      "*.scss": "scss"
+    },
+    "stylelint.validate": ["css", "scss"],
+    "css.validate": false,
+    "scss.validate": false,
+  
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "explicit"
+    },
+    
+    "[css, scss]": {
+      "editor.formatOnSave": false
+    }
+   }

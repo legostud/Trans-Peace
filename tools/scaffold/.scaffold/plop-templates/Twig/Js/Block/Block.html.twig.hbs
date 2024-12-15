@@ -1,0 +1,23 @@
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+]
+%}
+
+{% set contentVars = content.mocks ?: {
+
+}
+%}
+
+<div {{escaped}}\{{ {{escaped}}attributes.addClass(classes){{escaped}} }}{{escaped}}>
+ {{escaped}}\{{ {{escaped}}title_prefix{{escaped}} }}{{escaped}}
+	{% if label %}
+      <h2{{escaped}}\{{ {{escaped}}title_attributes{{escaped}} }}{{escaped}}>{{escaped}}\{{ {{escaped}}label{{escaped}} }}{{escaped}}</h2>
+    {% endif %}
+	{{escaped}}\{{ {{escaped}}title_suffix{{escaped}} }}{{escaped}}
+
+  {% block content %}
+    <div class="pull-quote js-pull-quote" data-model='{{escaped}}\{{ {{escaped}}contentVars| json_encode() | escape(){{escaped}} }}{{escaped}}'></div>
+  {% endblock %}
+</div>

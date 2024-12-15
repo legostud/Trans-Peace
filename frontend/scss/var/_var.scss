@@ -1,0 +1,32 @@
+@import "../generated/variables";
+@import "../generated/font-clamp";
+@import "../generated/easing-mixins";
+
+:root {
+  //colors
+  --c-trans-blue: rgb(91 207 251);
+  --c-trans-blue-raw: 91 207 251;
+  --c-trans-pink: rgb(245 171 185);
+  --c-trans-pink-raw: 245 171 185;
+  --c-white: rgb(255 255 255);
+}
+
+$gutter: 30px;
+$max-width: 1170px;
+
+// Breakpoints
+$hidden-bp-xs: 470px;
+$hidden-bp-s: 680px;
+$hidden-bp-m: 780px;
+$hidden-bp-l: 910px;
+$hidden-bp-xl: $max-width + (2 * $gutter);
+$bp-x-small-min: "min-width: " + ($hidden-bp-xs + 1);
+$bp-x-small-max: "max-width: " + $hidden-bp-xs;
+$bp-small-min: "min-width: " + ($hidden-bp-s + 1);
+$bp-small-max: "max-width:" + $hidden-bp-s;
+$bp-medium-min: "min-width: " + ($hidden-bp-m + 1);
+$bp-medium-max: "max-width:" + $hidden-bp-m;
+$bp-large-min: "min-width: " + ($hidden-bp-l + 1);
+$bp-large-max: "max-width:" + $hidden-bp-l;
+$bp-x-large-min: "min-width: " + ($hidden-bp-xl + 1);
+$bp-x-large-max: "max-width:" + $hidden-bp-xl;

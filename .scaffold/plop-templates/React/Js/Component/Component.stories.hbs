@@ -1,0 +1,13 @@
+import { setArgs,setArgTypes}  from "@/.storybook/helpers";
+import { {{pascalCase name}}, mockData }  from "@/js/components/{{pascalCase name}}";
+
+export default {
+  title: "Components/{{pascalCase name}}",
+  component: {{pascalCase name}},
+  argTypes: setArgTypes(mockData),
+};
+
+export const {{camelCase name}} = (args)=><{{pascalCase name}} {...setArgs(args)}/>;
+{{camelCase name}}.args = mockData;
+
+ 

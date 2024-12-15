@@ -1,0 +1,9 @@
+# Browsers that we support
+
+# used by babel, autoprefixer, eslint, stylelint, etc
+
+# https://github.com/browserslist/browserslist
+
+last 2 versions,
+not dead,
+not IE 11

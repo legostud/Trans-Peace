@@ -1,0 +1,9 @@
+import {{pascalCase name}} from "../{{pascalCase name}}";
+import mockData from "../{{pascalCase name}}.mockData";
+import { render, screen } from "@testing-library/react";
+import { expect, test } from "vitest";
+
+test("{{pascalCase name}} renders", () => {
+  render(<{{pascalCase name}} {...mockData} />);
+  expect(screen.getByText(/{{pascalCase name}} Template/i)).toBeDefined();
+});

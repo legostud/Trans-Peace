@@ -1,0 +1,14 @@
+import {{pascalCase name}} from "./{{pascalCase name}}";
+import mockData from "./{{pascalCase name}}.mockData";
+
+const Template = (args) => (
+  <div className="js-{{kebabCase name}}-mount" data-mock={JSON.stringify(args)} />
+);
+
+export default {
+  title: "Components/{{pascalCase name}}",
+  component: {{pascalCase name}}
+};
+
+export const {{camelCase name}} = {args: mockData};
+{{camelCase name}}.args = mockData;

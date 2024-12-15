@@ -1,0 +1,107 @@
+"use strict";
+module.exports = {
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+      classes: true,
+    },
+  },
+  env: {
+    node: true,
+    browser: true,
+    es6: true,
+  },
+  plugins: ["react", "react-hooks", "jsx-a11y"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  extends: ["plugin:react/recommended", "plugin:jsx-a11y/recommended"],
+  rules: {
+    "react/display-name": 0,
+    "react/jsx-boolean-value": 0,
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-filename-extension": 1,
+    "react/jsx-key": 1,
+    "react/jsx-max-props-per-line": [0, { maximum: 3 }],
+    "react/no-children-prop": 0,
+    "react/jsx-no-comment-textnodes": 1,
+    "react/jsx-no-duplicate-props": 1,
+    "react/jsx-no-target-blank": 1,
+    "react/jsx-no-undef": 1,
+    "react/jsx-pascal-case": 1,
+    "react/jsx-quotes": 0,
+    "react/jsx-sort-prop-types": 0,
+    "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": [
+      0,
+      "https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint",
+    ],
+    "react/jsx-uses-vars": 1,
+    "react/jsx-wrap-multilines": 1,
+    "react/no-danger": 0,
+    "react/no-danger-with-children": 1,
+    "react/no-deprecated": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-direct-mutation-state": 1,
+    "react/no-find-dom-node": 1,
+    "react/no-is-mounted": 1,
+    "react/no-multi-comp": [1, { ignoreStateless: true }],
+    "react/no-render-return-value": 1,
+    "react/no-string-refs": 1,
+    "react/no-unescaped-entities": [1, { forbid: [">", "}"] }],
+    "react/no-unknown-property": 1,
+    "react/prop-types": 1,
+    "react/react-in-jsx-scope": [
+      0,
+      "https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint",
+    ],
+    "react/require-render-return": 1,
+    "react/self-closing-comp": [
+      1,
+      {
+        component: true,
+        html: false,
+      },
+    ],
+    "react/sort-comp": [
+      1,
+      {
+        order: ["lifecycle", "everything-else", "render"],
+        groups: {
+          lifecycle: [
+            "displayName",
+            "propTypes",
+            "contextTypes",
+            "childContextTypes",
+            "mixins",
+            "statics",
+            "defaultProps",
+            "constructor",
+            "getDefaultProps",
+            "getInitialState",
+            "state",
+            "getChildContext",
+            "componentWillMount",
+            "componentDidMount",
+            "componentWillUnmount",
+            "componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "componentDidUpdate",
+          ],
+        },
+      },
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-quotes": [1, "prefer-double"],
+  },
+};
+
+// this is so the `languageOptions` property won't be warned in the new config system
+Object.defineProperty(module.exports, "languageOptions", { enumerable: false });

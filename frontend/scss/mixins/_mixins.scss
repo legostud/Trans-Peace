@@ -1,0 +1,97 @@
+/* X Small */
+@mixin bp-xs-max {
+  @media screen and (max-width: $bp-x-small-max) {
+    @content;
+  }
+}
+
+/* Small */
+@mixin bp-sm-max {
+  @media screen and (max-width: $bp-small-max) {
+    @content;
+  }
+}
+
+@mixin bp-sm-min {
+  @media screen and (min-width: $bp-small-min) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @media screen and (min-width: $bp-small-min) and (max-width: $bp-small-max) {
+    @content;
+  }
+}
+
+/* Medium */
+@mixin bp-md-max {
+  @media screen and (max-width: $bp-medium-max) {
+    @content;
+  }
+}
+
+@mixin bp-md-min {
+  @media screen and (min-width: $bp-medium-min) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media screen and (min-width: $bp-medium-min) and (max-width: $bp-medium-max) {
+    @content;
+  }
+}
+
+/* Large */
+@mixin bp-lg-max {
+  @media screen and (max-width: $bp-large-max) {
+    @content;
+  }
+}
+
+@mixin bp-lg-min {
+  @media screen and (min-width: $bp-large-min) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media screen and (min-width: $bp-large-min) and (max-width: $bp-large-max) {
+    @content;
+  }
+}
+
+/* X Large */
+@mixin bp-xl-max {
+  @media screen and (max-width: $bp-x-large-max) {
+    @content;
+  }
+}
+
+@mixin bp-xl-min {
+  @media screen and (min-width: $bp-x-large-min) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media screen and (min-width: $bp-x-large-min) and (max-width: $bp-x-large-max) {
+    @content;
+  }
+}
+
+@mixin bp-xxl-min {
+  @media screen and (min-width: $bp-xx-large-min) {
+    @content;
+  }
+}
+
+@mixin mask-img($img, $x: 1rem, $y: 1rem) {
+  display: block;
+  height: $y;
+  width: $x;
+  background-color: currentcolor;
+  content: "";
+  -webkit-mask-image: url("data:image/svg+xml,#{$img}");
+}

@@ -1,0 +1,16 @@
+import { renderToString } from "react-dom/server";
+import { setArgs, setArgTypes } from "@/.storybook/helpers";
+import mockData from "./{{pascalCase name}}.mockData";
+import "./{{kebabCase name}}.scss";
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+const Template = (args) => renderToString(<{{pascalCase name}} {...setArgs(args)} />);
+
+export default {
+  title: "Base/{{titleCase name}}",
+  argTypes: setArgTypes(mockData),
+  loaders: [async () => await import("@/js/index.js")],
+};
+
+export const {{camelCase name}} = Template.bind({});
+{{camelCase name}}.args = mockData;

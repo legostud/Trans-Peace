@@ -1,0 +1,87 @@
+import { bundlesImportRewriter } from "@aem-vite/import-rewriter";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
+import { resolve } from "path";
+import react from "@vitejs/plugin-react";
+import VitePluginBrowserSync from "vite-plugin-browser-sync";
+import sassGlobImports from "vite-plugin-sass-glob-import";
+import svgSprite from "./plugins/svgSprite.js";
+
+// https://vitejs.dev/config/
+
+export default defineConfig(({ mode }) => {
+  const clientLibsDir = "etc.clientlibs/nera2/clientlibs";
+  const frontendDir = resolve(__dirname, "./src/resources");
+
+  return {
+    base: mode === "production" ? `${clientLibsDir}/` : "dist/",
+    publicDir: `${frontendDir}/assets`,
+    assetsDir: "clientlib-site/resources",
+    // dev and prod modes
+    // send args to
+    // minify for prod
+    // source maps for dev
+    build: {
+      outDir: "dist",
+      emptyOutDir: true,
+      minify: "esbuild",
+      target: "es2015",
+      reportCompressedSize: true,
+      sourcemap: "inline",
+      rollupOptions: {
+        input: {
+          index: `${frontendDir}/js/index.js`,
+          styles: `${frontendDir}/scss/index.scss`,
+        },
+        output: {
+          entryFileNames: "clientlib-site/js/[name]-generated.js",
+          assetFileNames: (assetInfo) => {
+            const info = assetInfo?.name?.split(".");
+            const extType = info?.[info.length - 1] || "";
+            if (/woff|woff2|ttf/.test(extType)) {
+              return mode === "production"
+                ? "clientlib-site/resources/fonts/[name][extname]"
+                : "fonts/[name][extname]";
+            }
+            return "clientlib-site/css/[name]-generated[extname]";
+          },
+          chunkFileNames: "vendor/[name].[hash].js",
+        },
+      },
+    },
+    server: {
+      cors: true,
+      host: true,
+      hmr: {
+        host: "localhost",
+      },
+      proxy: {
+        mock: "http://echoapi.velir.com/",
+      },
+    },
+    optimizeDeps: {
+      include: ["react/jsx-runtime"],
+    },
+    plugins: [
+      splitVendorChunkPlugin(),
+      bundlesImportRewriter({
+        publicPath: "/etc.clientlibs/example/clientlibs/clientlib-site",
+        resourcesPath: "resources",
+      }),
+      sassGlobImports(),
+      react(),
+      VitePluginBrowserSync({
+        bs: {
+          ui: {
+            port: 8080,
+          },
+          proxy: "https://velir.com",
+          notify: false,
+        },
+      }),
+      svgSprite({
+        src: "./src/resources/assets/icons",
+        dest: `${frontendDir}/assets`,
+      }),
+    ],
+  };
+});

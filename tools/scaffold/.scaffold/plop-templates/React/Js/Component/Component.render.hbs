@@ -1,0 +1,14 @@
+import ReactDOM from "react-dom/client";
+
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+const render{{pascalCase name}} = () => {
+  const {{camelCase name}}s = [...document.querySelectorAll(".js-{{kebabCase name}}-mount")];
+
+  {{camelCase name}}s.forEach((mount) => {
+    const props = mount.dataset;
+    ReactDOM.render(<{{pascalCase name}} {...props} />, mount);
+  });
+};
+
+export default render{{pascalCase name}};

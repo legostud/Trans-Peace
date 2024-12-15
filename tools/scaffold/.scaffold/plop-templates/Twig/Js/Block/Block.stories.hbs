@@ -1,0 +1,18 @@
+import Twig from "twig";
+import {setArgs, setArgTypes } from "@/.storybook/helpers";
+import mockData from "./{{pascalCase name}}.mockData";
+import "./{{kebabCase name}}.scss";
+import {ctx} from "./{{kebabCase name}}.html.twig";
+import twigDrupal from 'twig-drupal-filters';
+twigDrupal(Twig);
+ 
+const Template = (args) =>Twig.twig({ data: ctx }).render(args)
+
+export default {
+  title: "Drupal Components/{{type}}/{{pascalCase name}}",
+  argTypes: setArgTypes(mockData),
+  loaders: [async () => await import("@/js/index.js")],
+  };
+
+ export const {{camelCase name}} = Template.bind({});
+ {{camelCase name}}.args = mockData;

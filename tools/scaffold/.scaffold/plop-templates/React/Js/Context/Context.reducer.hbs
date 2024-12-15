@@ -1,0 +1,17 @@
+import { TYPE_NAME } from "./constants";
+
+export const {{pascalCase name}}Reducer = (state, action) => {
+  switch (action.type) {
+    case TYPE_NAME: {
+      // Do action here
+
+      return {
+        ...state,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export default {{ pascalCase name}}Reducer;

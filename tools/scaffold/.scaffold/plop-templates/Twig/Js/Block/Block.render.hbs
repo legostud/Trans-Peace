@@ -1,0 +1,10 @@
+import { parseArgs, cleanCreateRoot } from "@/js/utils";
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+const render{{pascalCase name}} = (mount) => {
+    let {{pascalCase name}}Root = null;
+    {{pascalCase name}}Root = cleanCreateRoot({{pascalCase name}}Root, mount);
+    {{pascalCase name}}Root.render(<{{pascalCase name}} {...parseArgs(mount.dataset)} />);
+};
+
+export default render{{pascalCase name}};

@@ -1,0 +1,20 @@
+{
+  "name": "@velir-fe/browser-sync-proxy",
+  "version": "1.0.0",
+  "description": "Proxy example + injecting custom css file",
+  "main": "index.js",
+  "type": "module",
+  "bin":{
+    "proxy": "./index.js"
+  },
+   "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "browser-sync": "^2.11.2"
+  }
+}

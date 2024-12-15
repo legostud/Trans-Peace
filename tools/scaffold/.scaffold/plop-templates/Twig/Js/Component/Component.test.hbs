@@ -1,0 +1,10 @@
+import {{pascalCase name}} from '../{{pascalCase name}}';
+import mockData from "../{{pascalCase name}}.mockData";
+
+test('{{pascalCase name}} renders', () => {
+   const { asFragment } = setup(
+      <{{pascalCase name}} {...mockData} />
+   );
+
+   expect(asFragment()).toMatchSnapshot();
+});

@@ -1,0 +1,14 @@
+import { {{pascalCase name}}, mockData }  from "@/js/components/{{pascalCase name}}";
+ 
+const Template = (args) => <{{pascalCase name}} {...args} />;
+ 
+export default {
+  title: "Components/{{pascalCase name}}",
+  component: {{pascalCase name}},
+  argTypes: {},
+};
+
+export const {{camelCase name}} = Template.bind({});
+{{camelCase name}}.args = mockData;
+
+ 

@@ -1,0 +1,6 @@
+{
+    "extends": ["@velir-fe/stylelint-config-velir"],
+     "rules":{
+       
+    }
+}

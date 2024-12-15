@@ -1,0 +1,26 @@
+{
+  "name": "@velir-fe/stylelint-config-velir",
+  "version": "1.0.0",
+  "description": "Velir Stylelint Presets",
+  "keywords": [
+    "stylelint",
+    "stylelint-config"
+  ],
+  "license": "MIT",
+  "author": "Velir",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^3.0.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint": "^15.3.0",
+    "prettier": "^2.8.0"
+   },
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
+  }
+}

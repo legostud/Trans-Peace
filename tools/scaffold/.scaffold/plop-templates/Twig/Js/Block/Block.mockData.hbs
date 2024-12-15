@@ -1,0 +1,14 @@
+import drupalAttribute from "drupal-attribute";
+
+export default {
+    layout: "",
+    attributes: new drupalAttribute(),
+    title_attributes: new drupalAttribute(),
+    content_attributes: new drupalAttribute(),
+    plugin_id: "inline_block{{kebabCase name}}",    
+    content: {
+        mocks: {
+          field_title: "Example Title"
+        }
+    }
+}; 

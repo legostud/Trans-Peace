@@ -1,0 +1,27 @@
+.pew-icon {
+  display: inline-block;
+  height: var(--icon-size, 32px);
+  width: var(--icon-size, 32px);
+  vertical-align: middle;
+  fill: currentcolor;
+}
+
+.pew-icon--xs {
+  --icon-size: 16px;
+}
+
+.pew-icon--sm {
+  --icon-size: 24px;
+}
+
+.pew-icon--md {
+  --icon-size: 32px;
+}
+
+.pew-icon--lg {
+  --icon-size: 48px;
+}
+
+.pew-icon--xl {
+  --icon-size: 64px;
+}

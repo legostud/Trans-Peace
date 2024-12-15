@@ -1,0 +1,44 @@
+{
+  "name": "@velir-fe/scaffold",
+  "version": "1.0.0",
+  "author": "Velir",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/velir-fe/frontend-toolkit/tree/main/packages/scaffold",
+  "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "bin": "./index.js",
+  "description": "Auto generator for components, styles, stories",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint './**/*.{js,jsx}' && stylelint './**/*.{css,scss}'",
+    "dev": "echo \"running scaffold dev\" && exit 0",
+    "build": "echo \"running scaffold build\" && exit 0",
+    "test": "echo \"running scaffold test\" && exit 0",
+    "start": "plop"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "react",
+    "plop",
+    "component",
+    "auto",
+    "generator",
+    "reducer",
+    "store",
+    "generate"
+  ],
+  "dependencies": {
+    "@inquirer/prompts": "^2.2.0",
+    "fs-extra": "^11.1.1",
+    "handlebars": "^4.7.7",
+    "minimist": "^1.2.8",
+    "plop": "^3.1.2",
+    "ramda": "^0.29.0"
+  },
+  "devDependencies": {
+    "change-case": "^4.1.2"
+  }
+}

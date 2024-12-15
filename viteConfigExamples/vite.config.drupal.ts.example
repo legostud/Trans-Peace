@@ -1,0 +1,113 @@
+import { resolve } from "path";
+import Twig from "twig";
+import { loadEnv, splitVendorChunkPlugin } from "vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { sitesconfig } from "./package.json";
+// import sassGlobImports from "vite-plugin-sass-glob-import";
+import { svgSprite } from "./plugins/svgSprite.js";
+import formatAliases from "./plugins/formatAliases.js";
+import chalk from "chalk";
+import twig from "vite-plugin-twig-loader";
+import twigDrupal from "twig-drupal-filters";
+import { globSync } from "glob";
+import { mergeAll } from "ramda";
+
+export default ({ command, mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+  console.log(chalk.blue("Welcome to", process.env.NODE_ENV, "Mode"));
+  const env = process.env.NODE_ENV;
+  const { VITE_SITE } = loadEnv(mode, process.cwd(), "");
+  if (!sitesconfig[VITE_SITE]) {
+    throw new Error(`Missing sites configuration for ${VITE_SITE}`);
+  }
+
+  const { base, outputDir, clientDir, aliases } = sitesconfig[VITE_SITE];
+  const frontendDir = resolve(__dirname, clientDir);
+
+  const scssSrcs = globSync(`${frontendDir}/js/{blocks,entity}/**/*.scss`).map(
+    (file) => {
+      const fileArr = file.split("/");
+      return { [`${fileArr[fileArr.length - 1].split(".")[0]}`]: file };
+    }
+  );
+
+  return defineConfig({
+    plugins: [
+      twig({ filters: { ...twigDrupal(Twig) } }),
+      svgSprite({
+        src: `${frontendDir}/assets/img/icons`,
+        dest: `${frontendDir}/assets/img/`,
+      }),
+      react({
+        babel: {
+          babelrc: false,
+        },
+      }),
+      splitVendorChunkPlugin(),
+    ],
+    root: frontendDir,
+    base: command === "serve" && mode === "development" ? "" : base,
+    build: {
+      outDir: outputDir,
+      emptyOutDir: false,
+      manifest: true,
+      minify: env === "production" ? false : false,
+      reportCompressedSize: true,
+      sourcemap: env === "production" ? false : "inline",
+      rollupOptions: {
+        input: {
+          fonts: `${frontendDir}/scss/fonts/fonts.scss`,
+          index: `${frontendDir}/js/index.js`,
+          styles: `${frontendDir}/scss/index.scss`,
+          ...mergeAll(scssSrcs),
+        },
+        output: {
+          chunkFileNames: "js/chunks/[name]-[hash].js",
+          entryFileNames: "js/[name]-generated.js",
+          assetFileNames: ({ name }) => {
+            if (/\.(woff|woff2|ttf|otf)$/.test(name ?? "")) {
+              return "assets/fonts/[name][extname]";
+            }
+            if (/\.(gif|jpe?g|png|svg)$/.test(name ?? "")) {
+              return "assets/images/[name]-[hash][extname]";
+            }
+            if (/\.css$/.test(name ?? "") && name === "index.css") {
+              return "css/[name]-generated[extname]";
+            } else if (/\.css$/.test(name ?? "")) {
+              return "css/chunks/[name]/[name][extname]";
+            }
+            return "assets/[name]-[hash][extname]";
+          },
+        },
+      },
+    },
+    server: {
+      host: true,
+      port: 5173,
+      strictPort: true,
+      proxy: {
+        "/mock": "http://echoapi.velir.com/",
+      },
+    },
+    resolve: {
+      alias: formatAliases(aliases),
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "globalScss";',
+        },
+      },
+      postcss: {
+        //stop postcss from extracting unless in runnin build
+        ...(command === "serve" && { ctx: "storybook" }),
+      },
+    },
+    esbuild: {
+      jsxInject: "import React from 'react';",
+    },
+
+    /*PLOP_INJECT_VITE_*/
+  });
+};

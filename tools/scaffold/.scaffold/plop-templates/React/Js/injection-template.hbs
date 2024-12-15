@@ -1,0 +1,3 @@
+import { {{#injectRenderCondition addRenderFile shouldOverrideAddRenderFile}}render{{pascalCase name}}{{#if
+addInitFile}}, {{/if}} {{/injectRenderCondition}} {{#if addInitFile}}init{{pascalCase name}}{{/if}} } from
+"./{{relativePath}}/{{pascalCase name}}";

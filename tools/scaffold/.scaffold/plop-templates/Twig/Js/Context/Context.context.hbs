@@ -1,0 +1,40 @@
+import { createContext, useCallback, useMemo, useReducer } from "react";
+
+import {{pascalCase name}}Reducer from "./{{pascalCase name}}.reducer";
+import { TYPE_NAME } from "./constants";
+
+export const {{pascalCase name}}Context = createContext();
+
+export const {{pascalCase name}}Provider = ({ value, children }) => {
+  const initialState = useMemo(
+    () => ({
+      ...value,
+    }),
+    [value]
+  );
+
+  const [state, dispatch] = useReducer({{pascalCase name}}Reducer, initialState);
+
+  const dispatchName = useCallback(
+    (data) =>
+      dispatch({
+        type: TYPE_NAME,
+        payload: data,
+      }),
+    [dispatch]
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      ...state,
+      dispatchName,
+    }),
+    [state, dispatchName]
+  );
+
+  return (
+    <{{pascalCase name}}Context.Provider value={contextValue}>{children}</{{pascalCase name}}Context.Provider>
+  );
+};
+
+{{pascalCase name}}Provider.propTypes;

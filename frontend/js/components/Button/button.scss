@@ -1,0 +1,130 @@
+@use "@scss/utilities/sass-functions" as fn;
+@import "@scss/utilities/zero-btn";
+
+// Uses primary variant theme colors as fallbacks
+@mixin btn {
+  display: inline-flex;
+  align-items: center;
+  gap: fn.px-to-rem(4);
+  color: var(--btn-color-text, var(--theme-color-btn-primary-text));
+  font-weight: var(--font-weight-black);
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid
+    var(--btn-color-border, var(--theme-color-btn-primary-border));
+  background-color: var(
+    --btn-color-background,
+    var(--theme-color-btn-primary-background)
+  );
+  cursor: pointer;
+  appearance: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 0.25s, background 0.25s, border-color 0.25s;
+  }
+
+  &:hover {
+    color: var(
+      --btn-color-text-hover,
+      var(--theme-color-btn-primary-text-hover)
+    );
+    background: var(
+      --btn-color-background-hover,
+      var(--theme-color-btn-primary-background-hover)
+    );
+    border-color: var(
+      --btn-color-border-hover,
+      var(--theme-color-btn-primary-border-hover)
+    );
+  }
+
+  &[disabled] {
+    color: var(
+      --btn-color-text-disabled,
+      var(--theme-color-btn-primary-text-disabled)
+    );
+    background-color: var(
+      --btn-color-background-disabled,
+      var(--theme-color-btn-primary-background-disabled)
+    );
+    border-color: var(
+      --btn-color-border-disabled,
+      var(--theme-color-btn-primary-border-disabled)
+    );
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  @include btn;
+}
+
+.btn--variant-primary {
+  --btn-color-text: var(--theme-color-btn-primary-text);
+  --btn-color-background: var(--theme-color-btn-primary-background);
+  --btn-color-border: var(--theme-color-btn-primary-border);
+  --btn-color-text-hover: var(--theme-color-btn-primary-text-hover);
+  --btn-color-background-hover: var(--theme-color-btn-primary-background-hover);
+  --btn-color-border-hover: var(--theme-color-btn-primary-border-hover);
+  --btn-color-text-disabled: var(--theme-color-btn-primary-text-disabled);
+  --btn-color-background-disabled: var(
+    --theme-color-btn-primary-background-disabled
+  );
+  --btn-color-border-disabled: var(--theme-color-btn-primary-border-disabled);
+}
+
+.btn--variant-secondary {
+  --btn-color-text: var(--theme-color-btn-secondary-text);
+  --btn-color-background: var(--theme-color-btn-secondary-background);
+  --btn-color-border: var(--theme-color-btn-secondary-border);
+  --btn-color-text-hover: var(--theme-color-btn-secondary-text-hover);
+  --btn-color-background-hover: var(
+    --theme-color-btn-secondary-background-hover
+  );
+  --btn-color-border-hover: var(--theme-color-btn-secondary-border-hover);
+  --btn-color-text-disabled: var(--theme-color-btn-secondary-text-disabled);
+  --btn-color-background-disabled: var(
+    --theme-color-btn-secondary-background-disabled
+  );
+  --btn-color-border-disabled: var(--theme-color-btn-secondary-border-disabled);
+}
+
+@mixin iconButtonHover {
+  transition: 150ms ease-in;
+
+  &:hover {
+    transform: translateY(-3px);
+    transition: 150ms ease-out;
+  }
+}
+
+.btn--variant-icon {
+  @include zero-btn;
+  @include iconButtonHover;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@mixin btn--size-sm {
+  padding: 0.7em 1.6em;
+  font-size: fn.px-to-rem(10);
+  line-height: 1.4; // 14px
+  letter-spacing: 0.08em;
+}
+
+@mixin btn--size-lg {
+  padding: 1em 1.33em;
+  font-size: fn.px-to-rem(12);
+  line-height: 1.33;
+  letter-spacing: 0.08em;
+}
+
+.btn--size-sm {
+  @include btn--size-sm;
+}
+
+.btn--size-lg {
+  @include btn--size-lg;
+}
+
+

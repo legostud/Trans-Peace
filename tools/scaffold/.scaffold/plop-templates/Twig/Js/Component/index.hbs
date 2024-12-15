@@ -1,0 +1,9 @@
+export { default as mockData } from "./{{pascalCase name}}.mockData";
+{{#injectRenderCondition addRenderFile shouldOverrideAddRenderFile}}
+export { default as {{pascalCase name}} } from "./{{pascalCase name}}";
+export { propTypes, defaultProps } from "./{{pascalCase name}}.propTypes";
+export { default as render{{pascalCase name}} } from "./{{pascalCase name}}.render";
+{{/injectRenderCondition}}
+{{#if addInitFile}}
+export { default as init{{pascalCase name}} } from "./{{pascalCase name}}.init";
+{{/if}}
