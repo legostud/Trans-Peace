@@ -7,11 +7,7 @@ document.addEventListener(
   function () {
     dynamicRenderer([
       /* PLOP_INDEX_IMPORT */
-      {
-        selector: ".js-demo-component",
-        name: "components/Demo/Demo.render.jsx",
-      },
-      { selector: ".js-icon", name: "components/Icon/Icon.render.jsx" },
+      // { selector: ".js-icon", name: "components/Icon/Icon.render.jsx" },
     ]);
     // onCLS(console.log);
     // onFID(console.log);
