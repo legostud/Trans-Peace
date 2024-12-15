@@ -9,14 +9,36 @@
   "license": "MIT",
   "main": "index.js",
   "type": "module",
+  "eslintConfig": {
+    "extends": [
+      "stylelint",
+      "stylelint/jest"
+    ],
+    "globals": {
+      "module": true,
+      "require": true
+    }
+  },
+  "remarkConfig": {
+    "plugins": [
+      "@stylelint/remark-preset"
+    ]
+  },
+
   "sitesconfig": {
     "frontend": {
-      "base": "./",
+      "base": "",
       "outputDir": "../dist",
-      "clientDir": "frontend",
+      "clientDir": "frontend/",
       "aliases": {
-        "@/.storybook": "./.storybook",
-        "@": "./frontend"
+        "globalScss": "./frontend/scss/_import.scss",
+        "Storybook": "./.storybook/",
+        "assets": "./frontend/assets/",
+        "utils": "./frontend/js/utils/",
+        "components": "./frontend/js/components/",
+        "common": "./frontend/js/common/",
+        "modules": "./frontend/js/modules",
+        "hooks": "./frontend/js/hooks/"
       },
       "storybook": {
         "staticDirs": [
@@ -30,7 +52,7 @@
       "proxy": {
         "url": "https://www.velir.com/",
         "build": "dist",
-        "route": "/",
+        "route": "/assets/VelirSite-build",
         "https": true
       }
     }
