@@ -76,7 +76,6 @@
     "test-ui": "cross-env VITE_SITE=frontend vitest --ui --api 1337",
     "coverage": "cross-env VITE_SITE=frontend vitest run --coverage",
     "test-storybook": "cross-env VITE_SITE=frontend test-storybook",
-    "transform-tokens": "cross-env VITE_SITE=frontend node ./tools/tokens/transform/transformTokens.js",
     "clean-up": "rimraf ./dist/",
     "viz": "cross-env NODE_ENV=production VITE_SITE=frontend npx vite-bundle-visualizer",
     "scaffold": "cross-env VITE_SITE=frontend node ./tools/scaffold/index.js",
@@ -95,8 +94,7 @@
     "ramda": "^0.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-focus-lock": "^2.9.4",
-    "style-dictionary": "^3.8.0"
+    "react-focus-lock": "^2.9.4"
   },
   "devDependencies": {
     "@ctrl/tinycolor": "^3.4.0",
@@ -155,7 +153,6 @@
     "rimraf": "^5.0.1",
     "sass": "^1.63.4",
     "storybook": "^7.6.13",
-    "style-dictionary-utils": "^2.0.1",
     "styled-components": "^6.1.0",
     "svgstore": "^3.0.1",
     "tailwindcss": "^3.3.2",
