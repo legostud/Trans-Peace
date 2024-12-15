@@ -2,7 +2,7 @@
 @import "../generated/font-clamp";
 @import "../generated/easing-mixins";
 
-$gutter: 30px;
+$gutter: 48px;
 $max-width: 1170px;
 
 // Breakpoints
@@ -32,8 +32,13 @@ $bp-x-large-max: "max-width:" + $hidden-bp-xl;
 
   // spacing
   --l-gutter: 16px;
+  --l-max-width: #{$max-width};
 
   @media($bp-small-min) {
+    --l-gutter: 30px;
+  }
+
+  @media($bp-large-min) {
     --l-gutter: #{$gutter};
   }
 }

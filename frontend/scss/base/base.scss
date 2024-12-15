@@ -1,10 +1,13 @@
 html {
   height: 100%;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   height: 100dvh;
   font-family: "Helvetica Neue", sans-serif;
 
@@ -20,15 +23,19 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%, 100%;
+  background-attachment: fixed;
 
-  header,
-  footer {
-    flex: none;
-  }
+  padding: var(--l-gutter);
+  margin: 0;
+}
 
-  main {
-    flex: auto;
-  }
+body.sb-show-main.sb-main-padded {
+  padding: var(--l-gutter);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .demo-main {

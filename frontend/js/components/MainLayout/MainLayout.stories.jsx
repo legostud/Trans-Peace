@@ -5,9 +5,6 @@ export default {
   title: "Pages/Main Layout",
   component: MainLayout,
   args: mockData,
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 export const Default = {};
