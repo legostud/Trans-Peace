@@ -1,5 +1,5 @@
-import MainLayout from "@/js/components/MainLayout/MainLayout.jsx";
-import mockData from "@/js/components/MainLayout/MainLayout.mock.js";
+import MainLayout from "./MainLayout.jsx";
+import mockData from "./MainLayout.mock.js";
 
 export default {
   title: "Pages/Main Layout",

@@ -2,15 +2,6 @@
 @import "../generated/font-clamp";
 @import "../generated/easing-mixins";
 
-:root {
-  //colors
-  --c-trans-blue: rgb(91 207 251);
-  --c-trans-blue-raw: 91 207 251;
-  --c-trans-pink: rgb(245 171 185);
-  --c-trans-pink-raw: 245 171 185;
-  --c-white: rgb(255 255 255);
-}
-
 $gutter: 30px;
 $max-width: 1170px;
 
@@ -30,3 +21,19 @@ $bp-large-min: "min-width: " + ($hidden-bp-l + 1);
 $bp-large-max: "max-width:" + $hidden-bp-l;
 $bp-x-large-min: "min-width: " + ($hidden-bp-xl + 1);
 $bp-x-large-max: "max-width:" + $hidden-bp-xl;
+
+:root {
+  //colors
+  --c-trans-blue: rgb(91 207 251);
+  --c-trans-blue-raw: 91 207 251;
+  --c-trans-pink: rgb(245 171 185);
+  --c-trans-pink-raw: 245 171 185;
+  --c-white: rgb(255 255 255);
+
+  // spacing
+  --l-gutter: 16px;
+
+  @media($bp-small-min) {
+    --l-gutter: #{$gutter};
+  }
+}

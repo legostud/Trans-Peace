@@ -1,0 +1,55 @@
+.visually-hidden:not(:focus, :active) {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hide-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+.animate-slide-in {
+  --tranform-animation: 25%;
+  overflow: hidden;
+
+  &.scrolled-into-view {
+    --tranform-animation: 0;
+  }
+
+  @media (prefers-reduced-motion) {
+    --tranform-animation: 0;
+  }
+
+  & > * {
+    transition: transform 1.2s ease;
+    transform: translateY(var(--tranform-animation));
+  }
+}
+
+.animate-fade-in {
+  --visibility-animation: hidden;
+  --opacity-animation: 0;
+  visibility: var(--opacity-animation);
+  opacity: var(--opacity-animation);
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+
+  &.scrolled-into-view {
+    --visibility-animation: visible;
+    --opacity-animation: 1;
+  }
+
+  @media (prefers-reduced-motion) {
+    --visibility-animation: visible;
+    --opacity-animation: 1;
+  }
+}

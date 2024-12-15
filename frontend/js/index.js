@@ -1,6 +1,6 @@
 import "vite/modulepreload-polyfill";
 // import { onLCP, onFID, onCLS } from "web-vitals/attribution";
-import { dynamicRenderer } from "@/js/utils";
+import { dynamicRenderer } from "./utils";
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -17,5 +17,5 @@ document.addEventListener(
     // onFID(console.log);
     // onLCP(console.log);
   },
-  false
+  false,
 );

@@ -8,7 +8,7 @@ const MainLayout = (props) => {
   const { children = "Main Layout" } = props;
 
   return (
-    <div className="js-site-content">
+    <div className="js-site-content main-layout">
       <header className="layout-header">
         <SkipLink />
       </header>

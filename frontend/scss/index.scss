@@ -1,2 +1,9 @@
-@import "./lib/*";
-@import "./base/**/!(_)*";
+@import "./base/**/*.scss";
+@import "./lib/**/*.scss";
+@import "./mixins/**/*.scss";
+@import "./utilities/**/*.scss";
+@import "./var/**/*.scss";
+
+// Components
+@import "../js/components/**/*.scss";
+

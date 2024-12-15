@@ -1,11 +1,10 @@
-@use "@scss/utilities/sass-functions" as fn;
-@import "@scss/utilities/zero-btn";
+@import "../../../scss/utilities/zero-btn";
 
 // Uses primary variant theme colors as fallbacks
 @mixin btn {
   display: inline-flex;
   align-items: center;
-  gap: fn.px-to-rem(4);
+  gap: 0.25rem;
   color: var(--btn-color-text, var(--theme-color-btn-primary-text));
   font-weight: var(--font-weight-black);
   text-align: center;
@@ -107,14 +106,14 @@
 
 @mixin btn--size-sm {
   padding: 0.7em 1.6em;
-  font-size: fn.px-to-rem(10);
+  font-size: 0.625rem;
   line-height: 1.4; // 14px
   letter-spacing: 0.08em;
 }
 
 @mixin btn--size-lg {
   padding: 1em 1.33em;
-  font-size: fn.px-to-rem(12);
+  font-size: 0.75rem;
   line-height: 1.33;
   letter-spacing: 0.08em;
 }
