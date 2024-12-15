@@ -1,5 +1,0 @@
-{
-  "extends": [
-   "@velir-fe/eslint-config-velir"
- ]
-}

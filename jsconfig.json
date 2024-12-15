@@ -37,7 +37,7 @@
     "./vite/*",
     "./package.json",
     "./plugins/*"
-  ],
+, ".stylelintrc.cjs"  ],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
